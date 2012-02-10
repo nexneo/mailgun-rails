@@ -26,7 +26,8 @@ module Mailgun
         data << Curl::PostField.content("to", destination)
       end
       
-      data << Curl::PostField.content("o:tag", mail['X-Mailgun-Tag'].join(' '))
+      tags = mail['X-Mailgun-Tag'] || %Q{}
+      data << Curl::PostField.content("o:tag", tags.join(' '))
 
       curl = Curl::Easy.new("https://api:#{api_key}@api.mailgun.net/v2/#{api_host}/messages.mime")
       curl.multipart_form_post = true

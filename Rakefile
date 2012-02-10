@@ -6,12 +6,14 @@ begin
 
   Jeweler::Tasks.new do |jewel|
     jewel.name        = 'mailgun-rails'
-    jewel.summary     = 'Mailgun adapter for Rails.'
-    jewel.email       = ['tanel.suurhans@perfectline.ee', 'tarmo.lehtpuu@perfectline.ee']
-    jewel.homepage    = 'https://github.com/perfectline/mailgun-rails'
-    jewel.description = 'Mailgun adapter for Rails.'
-    jewel.authors     = ["Tanel Suurhans", "Tarmo Lehtpuu"]
+    jewel.summary     = 'Mailgun adapter for ActionMailer'
+    jewel.email       = ['niket@insightmethods.com']
+    jewel.homepage    = 'https://github.com/nexneo/mailgun-rails'
+    jewel.description = 'Use this plugin in your rails applications to send emails through the mailgun http mime API'
+    jewel.authors     = ["Niket Patel"]
     jewel.files       = FileList["lib/mailgun-rails.rb", "MIT-LICENCE", "README.markdown"]
+
+    jewel.add_dependency 'rake'
     jewel.add_dependency 'curb'
     jewel.add_dependency 'activesupport'
     jewel.add_dependency 'actionmailer'

@@ -50,4 +50,4 @@ module Mailgun
 
 end
 
-ActionMailer::Base.add_delivery_method :mailgun_mime, Mailgun::MimeDelivery
+ActionMailer::Base.add_delivery_method :mailgun, Mailgun::MimeDelivery

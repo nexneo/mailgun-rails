@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Tanel Suurhans", "Tarmo Lehtpuu"]
-  s.date = "2011-12-13"
-  s.description = "Mailgun adapter for Rails."
-  s.email = ["tanel.suurhans@perfectline.ee", "tarmo.lehtpuu@perfectline.ee"]
+  s.authors = ["Niket Patel"]
+  s.date = "2012-02-10"
+  s.description = "Use this plugin in your rails applications to send emails through the mailgun http mime API"
+  s.email = ["niket@insightmethods.com"]
   s.extra_rdoc_files = [
     "README.markdown"
   ]
@@ -20,24 +20,27 @@ Gem::Specification.new do |s|
     "README.markdown",
     "lib/mailgun-rails.rb"
   ]
-  s.homepage = "https://github.com/perfectline/mailgun-rails"
+  s.homepage = "https://github.com/nexneo/mailgun-rails"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
-  s.summary = "Mailgun adapter for Rails."
+  s.summary = "Mailgun adapter for ActionMailer"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<mailgun-rails>, [">= 0"])
       s.add_runtime_dependency(%q<curb>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_runtime_dependency(%q<actionmailer>, [">= 0"])
     else
+      s.add_dependency(%q<mailgun-rails>, [">= 0"])
       s.add_dependency(%q<curb>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<actionmailer>, [">= 0"])
     end
   else
+    s.add_dependency(%q<mailgun-rails>, [">= 0"])
     s.add_dependency(%q<curb>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<actionmailer>, [">= 0"])

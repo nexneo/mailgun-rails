@@ -26,7 +26,7 @@ module Mailgun
         data << Curl::PostField.content("to", destination)
       end
       
-      tags = mail['X-Mailgun-Tag'] || %Q{}
+      tags = mail['X-Mailgun-Tag'] || []
       data << Curl::PostField.content("o:tag", tags.join(' '))
 
       curl = Curl::Easy.new("https://api:#{api_key}@api.mailgun.net/v2/#{api_host}/messages.mime")

@@ -13,6 +13,7 @@ begin
     jewel.authors     = ["Niket Patel"]
     jewel.files       = FileList["lib/mailgun-rails.rb", "MIT-LICENCE", "README.markdown"]
 
+    jewel.add_dependency 'json'
     jewel.add_dependency 'curb'
     jewel.add_dependency 'activesupport'
     jewel.add_dependency 'actionmailer'

@@ -15,9 +15,6 @@ module Mailgun
       api_key = settings[:api_key]
       api_host = settings[:api_host]
       
-      tags = mail['X-Mailgun-Tag']
-      mail['X-Mailgun-Tag'] = nil
-      
       body              = Curl::PostField.content("message", mail.encoded)
       body.remote_file  = "message"
       body.content_type = "application/octet-stream"
@@ -27,10 +24,6 @@ module Mailgun
 
       mail.destinations.each do |destination|
         data << Curl::PostField.content("to", destination)
-      end
-      
-      if tags
-        data << Curl::PostField.content("o:tag", tags.join(' '))
       end
 
       curl = Curl::Easy.new("https://api:#{api_key}@api.mailgun.net/v2/#{api_host}/messages.mime")

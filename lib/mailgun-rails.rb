@@ -3,10 +3,10 @@ require "active_support"
 require "curb"
 require "mailgun-delivery"
 
- module ActionMailer
-  class Base
-    def mailgun_tag(tag)    
-      @_message['X-Mailgun-Tag'] = tag      
-    end      
-  end  
+module MailgunExtensions
+  def mailgun_tag(tag)    
+    headers['X-Mailgun-Tag'] = tag      
+  end
 end
+
+ActionMailer::Base.send(:include, MailgunExtensions)

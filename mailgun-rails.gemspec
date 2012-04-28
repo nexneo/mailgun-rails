@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
     "README.markdown",
     "lib/mailgun-rails.rb"
   ]
-  s.homepage = "https://github.com/nexneo/mailgun-rails"
+  s.homepage = "https://github.com/perfectline/mailgun-rails"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
   s.summary = "Mailgun adapter for ActionMailer"

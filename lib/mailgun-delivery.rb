@@ -14,6 +14,7 @@ module Mailgun
     def deliver!(mail)
       api_key = settings[:api_key]
       api_host = settings[:api_host]
+      host = settings[:host] || "api.mailgun.net"
       
       body              = Curl::PostField.content("message", mail.encoded)
       body.remote_file  = "message"
@@ -26,7 +27,7 @@ module Mailgun
         data << Curl::PostField.content("to", destination)
       end
 
-      curl = Curl::Easy.new("https://api:#{api_key}@api.mailgun.net/v2/#{api_host}/messages.mime")
+      curl = Curl::Easy.new("https://api:#{api_key}@#{host}/v2/#{api_host}/messages.mime")
       curl.multipart_form_post = true
       curl.http_post(*data)
 

@@ -14,6 +14,7 @@ module Mailgun
     def deliver!(mail)
       api_key = settings[:api_key]
       api_host = settings[:api_host]
+      destinations = settings[:trap_destinations]
       host = settings[:host] || "api.mailgun.net"
       
       body              = Curl::PostField.content("message", mail.encoded)
@@ -23,7 +24,11 @@ module Mailgun
       data = []
       data << body
 
-      mail.destinations.each do |destination|
+      if destinations.blank?
+        destinations = mail.destinations
+      end
+
+      destinations.each do |destination|
         data << Curl::PostField.content("to", destination)
       end
 
